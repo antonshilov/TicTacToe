@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
  * Created by vaccum1 on 21.08.2014.
  * Класс, описывающий поведение ячеек игрового поля
  */
+//TODO: Add commets
+
 public class XOButton extends JButton implements ActionListener{
     private ImageIcon xIcon,oIcon;
     private int buttonValue;

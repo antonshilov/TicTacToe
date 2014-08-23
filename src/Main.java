@@ -3,6 +3,7 @@
  */
 import javax.swing.UIManager.*;
 import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
        //Setting Nimbus L&F
@@ -18,6 +19,8 @@ public class Main {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         }
 
-        new TicTacToe();
+       new TicTacToe();
+
+
     }
 }
