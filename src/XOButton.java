@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 public class XOButton extends JButton implements ActionListener{
     private ImageIcon xIcon,oIcon;
     private int buttonValue;
+    private static int stepCount = 0;
+
     /* XOButton buttonValue
     0: nothing
     1: X
@@ -36,12 +38,11 @@ public class XOButton extends JButton implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        buttonValue++;
-        buttonValue %= 3;
+        if (buttonValue != 0) return;
+        stepCount++;
+        if (stepCount % 2 == 0) buttonValue = 2;
+        else buttonValue = 1;
         switch (buttonValue){
-            case 0:
-                this.setIcon(null);
-                break;
             case 1:
                 this.setIcon(xIcon);
                 break;
