@@ -11,15 +11,20 @@ private JPanel panel = new JPanel();
 XOButton buttons[][] = new XOButton[FIELD_SIZE][FIELD_SIZE];
 private static final byte FIELD_SIZE = 3;
 private static final String FRAME_NAME = "The Tic-Tac-Toe Game";
-
-
+private Object opponentType;
     public TicTacToe(){
         super(FRAME_NAME);
-        Dimension frameSize = new Dimension(600, 600);
+       /* opponentType = getOpponentType();
+        if(opponentType == null){
+            System.exit(0);
+        }
+        */
+        Dimension frameSize = new Dimension(450, 500);
         setSize(frameSize);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         panel.setLayout(new GridLayout(3, 3));
+
         this.add(panel);
         center(this);
 
@@ -30,8 +35,9 @@ private static final String FRAME_NAME = "The Tic-Tac-Toe Game";
                 buttons[i][j] = new XOButton();
                 panel.add(buttons[i][j]);
             }
-        new ChooseOpponentTypeDialog(this);
+
         setVisible(true);
+
     }
 
     public static void center(JFrame frame) {
@@ -42,6 +48,17 @@ private static final String FRAME_NAME = "The Tic-Tac-Toe Game";
         int y = (dim.height - h) / 2;
 
         frame.setLocation(x, y);
+    }
+
+    public Object getOpponentType() {
+        Object[] possibleValues = { "Human", "AI"};
+        Object selectedValue = null;
+        selectedValue = JOptionPane.showInputDialog(null,
+                "Choose opponent type", "Input",
+                JOptionPane.OK_CANCEL_OPTION, null,
+                possibleValues, possibleValues[0]);
+        return selectedValue;
+
     }
 
 
