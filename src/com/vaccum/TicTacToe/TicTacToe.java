@@ -121,23 +121,24 @@ public class TicTacToe extends JFrame implements ActionListener {
     }
 
     public void whoWon() {
+
         if (stepCount == 9){
             winDialog(-1);
-            return;
         }
+
         for (int i = 0; i < FIELD_SIZE; i++)//Line
             if (buttons[i][0].getButtonValue() == buttons[i][1].getButtonValue() &&
                     buttons[i][1].getButtonValue() == buttons[i][2].getButtonValue()) {
                 winDialog(buttons[i][0].getButtonValue());
-                return;
             }
 
         for (int i = 0; i < FIELD_SIZE; i++) //Column
             if (buttons[0][i].getButtonValue() == buttons[1][i].getButtonValue() &&
                     buttons[1][i].getButtonValue() == buttons[2][i].getButtonValue()) {
-                winDialog(buttons[i][0].getButtonValue());
-                return;
+                winDialog(buttons[0][i].getButtonValue());
             }
+
+
         if (buttons[0][0].getButtonValue() == buttons[1][1].getButtonValue() &&//Diagonal
                 buttons[1][1].getButtonValue() == buttons[2][2].getButtonValue()){
             winDialog(buttons[1][1].getButtonValue());
