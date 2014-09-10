@@ -30,8 +30,8 @@ public class XOButton extends JButton{
 
     public XOButton(){
 
-        xIcon = new ImageIcon("res/X.png");
-        oIcon = new ImageIcon("res/O.png");
+        xIcon = new ImageIcon(getClass().getResource("/res/X.png"));
+        oIcon = new ImageIcon(getClass().getResource("/res/O.png"));
 
     }
 
