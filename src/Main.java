@@ -1,6 +1,7 @@
 /**
  * Created by vaccum1 on 21.08.2014.
  */
+import com.vaccum.TicTacToe.TicTacToe;
 import javax.swing.UIManager.*;
 import javax.swing.*;
 

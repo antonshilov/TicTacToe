@@ -1,19 +1,19 @@
+package com.vaccum.TicTacToe;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by vaccum1 on 21.08.2014.
  * Класс, описывающий поведение ячеек игрового поля
  */
-//TODO: Add commets
+//TODO: Add comments
 
-public class XOButton extends JButton implements ActionListener{
-    private ImageIcon xIcon,oIcon;
+public class XOButton extends JButton{
+    private final ImageIcon xIcon;
+    private final ImageIcon oIcon;
     private int buttonValue;
-    private static int stepCount = 0;
 
-    /* XOButton buttonValue
+    /* buttonValue
     0: nothing
     1: X
     2: O
@@ -25,24 +25,21 @@ public class XOButton extends JButton implements ActionListener{
 
     public void setButtonValue(int buttonValue) {
         this.buttonValue = buttonValue;
+        setIcon(buttonValue);
     }
 
     public XOButton(){
 
-        xIcon = new ImageIcon("recources/X.png");
-        oIcon = new ImageIcon("recources/O.png");
-
-        this.addActionListener(this);
+        xIcon = new ImageIcon("res/X.png");
+        oIcon = new ImageIcon("res/O.png");
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (buttonValue != 0) return;
-        stepCount++;
-        if (stepCount % 2 == 0) buttonValue = 2;
-        else buttonValue = 1;
+    private void setIcon(int buttonValue) {
         switch (buttonValue){
+            case 0:
+                this.setIcon(null);
+                break;
             case 1:
                 this.setIcon(xIcon);
                 break;
@@ -50,4 +47,5 @@ public class XOButton extends JButton implements ActionListener{
                 this.setIcon(oIcon);
         }
     }
+
 }
